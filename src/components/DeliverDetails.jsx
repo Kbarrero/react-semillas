@@ -21,7 +21,7 @@ class DeliverDetails extends Component {
             <Form.Control
               type="text"
               defaultValue={this.props.inputValues.pointDelivery}
-              name="pointdelivery"
+              name="pointDelivery"
               required
               onChange={this.props.handleChange}
             />
@@ -33,7 +33,7 @@ class DeliverDetails extends Component {
               <Form.Control
                 type="text"
                 defaultValue={this.props.inputValues.deliveryAddress}
-                name="DeliveryAddress"
+                name="deliveryAddress"
                 required
                 onChange={this.props.handleChange}
               />
@@ -44,7 +44,7 @@ class DeliverDetails extends Component {
               <Form.Control
                 type="text"
                 defaultValue={this.props.inputValues.observations}
-                name="observaciones"
+                name="observations"
                 required
                 onChange={this.props.handleChange}
               />

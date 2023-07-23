@@ -21,7 +21,7 @@ class ReceiveDetails extends Component {
             <Form.Control
               type="text"
               defaultValue={this.props.inputValues.dateReceive}
-              name="datedetails"
+              name="dateReceive"
               required
               onChange={this.props.handleChange}
             />
@@ -33,7 +33,7 @@ class ReceiveDetails extends Component {
               <Form.Control
                 type="text"
                 defaultValue={this.props.inputValues.pointReceive}
-                name="pointreceive"
+                name="pointReceive"
                 required
                 onChange={this.props.handleChange}
               />
@@ -44,7 +44,7 @@ class ReceiveDetails extends Component {
               <Form.Control
                 type="text"
                 defaultValue={this.props.inputValues.addressReceive}
-                name="addressreceive"
+                name="addressReceive"
                 required
                 onChange={this.props.handleChange}
               />

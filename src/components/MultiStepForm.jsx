@@ -1,6 +1,5 @@
-// 
-import { useFormik } from "formik";
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import UserD from "./UserD";
 import UserDetails from "./UserDetails";
 import AddressDetails from "./AddressDetails";
 import Confirmation from "./Confirmation";
@@ -8,10 +7,9 @@ import ProductDetails from "./ProductDetails";
 import DeliverDetails from "./DeliverDetails";
 import ReceiveDetails from "./ReceiveDetails";
 
-
-class MultiStepForm extends Component {
-  state = {
-    step: 1,
+const MultiStepForm = () => {
+  const [step, setStep] = useState(1);
+  const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
@@ -22,115 +20,76 @@ class MultiStepForm extends Component {
     typeProduct: '',
     product: '',
     service: '',
-    dateReceive:'',
+    dateReceive: '',
     pointReceive: '',
     addressReceive: '',
     pointDelivery: '',
     deliveryAddress: '',
     observations: '',
+  });
 
-  }
+ 
+  const handleChange = (event) => {
+    console.log(event.target.name);
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+    
+  };
+  
+  const nextStep = () => {
+    setStep(step + 1);
+  };
 
-  nextStep = () => {
-    const { step } = this.state;
-    this.setState({
-      step: step + 1
-    });
-  }
+  const prevStep = () => {
+    setStep(step - 1);
+  };
 
-  prevStep = () => {
-    const { step } = this.state;
-    this.setState({
-      step: step - 1
-    });
-  }
+  const inputValues = { ...formData };
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  }
+  switch (step) {
+    case 1:
+      return <UserD
+        nextStep={nextStep}
+        handleChange={handleChange}
+        inputValues={inputValues}
+      />;
+    case 2:
+      return <AddressDetails
+        nextStep={nextStep}
+        prevStep={prevStep}
+        handleChange={handleChange}
+        inputValues={inputValues}
+      />;
+    case 3:
+      return <ProductDetails
+        nextStep={nextStep}
+        prevStep={prevStep}
+        handleChange={handleChange}
+        inputValues={inputValues}
+      />;
+    case 4:
+      return <ReceiveDetails
+        nextStep={nextStep}
+        prevStep={prevStep}
+        handleChange={handleChange}
+        inputValues={inputValues}
+      />;
 
-  render() {
-    const { step, firstName, lastName, email, address, city, 
-        neigborhood, phone,typeProduct,product,service,dateReceive,pointReceive,addressReceive,pointDelivery,deliveryAddress,
-        observations } = this.state;
-    const inputValues = { firstName, lastName, email, address, city, 
-        neigborhood, phone, typeProduct, product,service,dateReceive,pointReceive,addressReceive,pointDelivery,deliveryAddress,
-        observations };
-
-    switch (step) {
-      case 1:
-        return <UserDetails
-          nextStep={this.nextStep}
-          handleChange={this.handleChange}
-          inputValues={inputValues}
-        />;
-      case 2:
-        return <AddressDetails
-          nextStep={this.nextStep}
-          prevStep={this.prevStep}
-          handleChange={this.handleChange}
-          inputValues={inputValues}
-        />;
-        case 3:
-        return <ProductDetails
-          nextStep={this.nextStep}
-          prevStep={this.prevStep}
-          handleChange={this.handleChange}
-          inputValues={inputValues}
-        />;
-        case 4:
-            return <ReceiveDetails
-              nextStep={this.nextStep}
-              prevStep={this.prevStep}
-              handleChange={this.handleChange}
-              inputValues={inputValues}
-            />;
-
-            case 5:
-                return <DeliverDetails
-                  nextStep={this.nextStep}
-                  prevStep={this.prevStep}
-                  handleChange={this.handleChange}
-                  inputValues={inputValues}
-                />;
-      case 6:
-        return <Confirmation
-          nextStep={this.nextStep}
-          prevStep={this.prevStep}
-          inputValues={inputValues}
-        />;
-      default:
-        return null;
-    }
+    case 5:
+      return <DeliverDetails
+        nextStep={nextStep}
+        prevStep={prevStep}
+        handleChange={handleChange}
+        inputValues={inputValues}
+      />;
+    case 6:
+      return <Confirmation
+        nextStep={nextStep}
+        prevStep={prevStep}
+        inputValues={inputValues}
+      />;
+    default:
+      return null;
   }
 }
 
 export default MultiStepForm;
-
-
-
-
-// const MultiStepForm = () => {
-
-//     const {} = useFormik({
-//         initialValues: {
-//             step: 1,
-//             firstName: '',
-//             lastName: '',
-//             email: '',
-//             address: '',
-//             city: '',
-//             state: '',
-//             zip:'',
-//         },
-//     })
-
-//     return (
-//         <div className="MultiStepForm">
-
-//         </div>
-  
-//     )
-// }
-
-// export default MultiStepForm;

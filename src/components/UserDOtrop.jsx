@@ -9,12 +9,19 @@ class UserDetails extends Component {
 
   saveAndContinue = (e) => {
     e.preventDefault();
+
+    // Perform validation here (e.g., check if fields are not empty)
+    const { firstName, lastName, email } = this.props.inputValues;
+    if (firstName.trim() === '' || lastName.trim() === '' || email.trim() === '') {
+      alert('Please fill in all required fields.');
+      return; // Don't proceed to the next step if fields are not filled
+    }
+
     this.props.nextStep();
   }
 
   render() {
     return (
-
       <Container>
         <Form>
           <>
