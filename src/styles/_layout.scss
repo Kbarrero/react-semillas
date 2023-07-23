@@ -2,12 +2,27 @@
 
 h1{
   font-family: v.$font-family;
-  text-align: center;
   color: v.$white;
   text-align: center;
   letter-spacing: 0.1rem;
   padding: 2.4rem;
 }
+h2{
+  font-family: v.$font-family;
+  text-align: center;
+  color: v.$white;
+  padding: 1rem;
+}
+h4{
+  font-family: v.$font-family;
+  text-align: justify;
+  padding-bottom: 1rem;
+}
+span{
+  font-family: v.$font-family;
+  font-weight: 420;
+}
+
 .container {
   width: 100vw;
   height: 100vh;
@@ -42,4 +57,11 @@ h1{
       }
     }
   }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: max-content 1fr; /* Espacio igual entre las etiquetas y los valores */
+  grid-row-gap: 3px; /* Espacio vertical entre filas */
+ 
 }

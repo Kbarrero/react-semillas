@@ -1,62 +1,71 @@
 import React, { Component } from 'react';
 import { Form, Button, Col, Container } from 'react-bootstrap';
 
-class ReceiveDetails extends Component {
-  back = (e) => {
+const ReceiveDetails  = (props) => {
+ 
+  const back = (e) => {
     e.preventDefault();
-    this.props.prevStep();
+    props.prevStep();
   }
 
-  saveAndContinue = (e) => {
+  const saveAndContinue = (e) => {
     e.preventDefault();
-    this.props.nextStep();
+    props.nextStep();
   }
 
-  render() {
+
     return (
-      <Container>
-        <Form>
-          <Form.Group controlId="formDateReceive">
-            <Form.Label> Fecha de recibido</Form.Label>
-            <Form.Control
+      <main>
+      <h3>Punto de recepcion del producto en el Semillero</h3>
+      <div className="card">
+        <form onSubmit={saveAndContinue}>
+          <fieldset>
+            <label htmlFor="formDateReceive" className="label">
+              Fecha de recibido:
+            </label>
+            <input
               type="text"
-              defaultValue={this.props.inputValues.dateReceive}
+              id="formDateReceive"
+              defaultValue={props.inputValues.dateReceive}
               name="dateReceive"
               required
-              onChange={this.props.handleChange}
+              onChange={props.handleChange}
             />
-          </Form.Group>
-
-          <>
-            <Form.Group as={Col} controlId="formPointReceive">
-              <Form.Label>Punto de recepción</Form.Label>
-              <Form.Control
-                type="text"
-                defaultValue={this.props.inputValues.pointReceive}
-                name="pointReceive"
-                required
-                onChange={this.props.handleChange}
-              />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formAddressReceive">
-              <Form.Label>Dirección</Form.Label>
-              <Form.Control
-                type="text"
-                defaultValue={this.props.inputValues.addressReceive}
-                name="addressReceive"
-                required
-                onChange={this.props.handleChange}
-              />
-            </Form.Group>
-          </>
-
-          <Button variant="secondary" onClick={this.back}>Atrás</Button>{' '}
-          <Button variant="primary" onClick={this.saveAndContinue}>Siguiente</Button>
-        </Form>
-      </Container>
+          </fieldset>
+          <fieldset>
+            <label htmlFor="formPointReceive" className="label">
+              Punto de recepción:
+            </label>
+            <input
+              type="text"
+              id="formPointReceive"
+              defaultValue={props.inputValues.pointReceive}
+              name="pointReceive"
+              required
+              onChange={props.handleChange}
+            />
+          </fieldset>
+          <fieldset>
+            <label htmlFor="formAddressReceive" className="label">
+              Dirección:
+            </label>
+            <input
+              type="text"
+              id="formAddressReceive"
+              defaultValue={props.inputValues.addressReceive}
+              name="addressReceive"
+              required
+              onChange={props.handleChange}
+            />
+          </fieldset>
+          <div className="button-container">
+            <button onClick={back}>Atrás</button>
+            <button type="submit">Siguiente</button>
+          </div>
+        </form>
+      </div>
+    </main>
     );
-  }
 }
 
 export default ReceiveDetails;

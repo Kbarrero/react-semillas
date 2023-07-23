@@ -1,48 +1,103 @@
 import React, { Component } from 'react';
 import { Button, Container } from 'react-bootstrap';
 
-class Confirmation extends Component {
-  back = (e) => {
+const Confirmation = (props) => {
+  
+const back = (e) => {
     e.preventDefault();
-    this.props.prevStep();
+    props.prevStep();
   }
 
-  saveAndContinue = (e) => {
+const saveAndContinue = (e) => {
     e.preventDefault();
-    this.props.nextStep();
+    props.nextStep();
   };
 
-  render() {
-    const { inputValues: { firstName, lastName, email, address, city, 
-        neigborhood, phone,typeProduct,product,service,dateReceive,pointReceive,addressReceive,pointDelivery,deliveryAddress,
-        observations } } = this.props;
+ 
+  const { inputValues: { firstName, lastName, email, address, city, 
+        neighborhood, phone,typeProduct,product,service,dateReceive,pointReceive,addressReceive,pointDelivery,deliveryAddress,
+        observations } } = props;
 
     return (
-      <Container>
-        <h1>Confirmación de datos</h1>
-        <p> Verifique si la siguiente información es correcta.</p>
-        <p>Nombre: {firstName}</p>
-        <p>Apellido: {lastName}</p>
-        <p>Correo electrónico: {email}</p>
-        <p>Dirección: {address}</p>
-        <p>Ciudad: {city}</p>
-        <p>Barrio: {neigborhood}</p>
-        <p>Teléfono: {phone}</p>
-        <p>Tipo de producto: {typeProduct}</p>
-        <p>Producto: {product} </p>
-        <p>Servicio: {service} </p>
-        <p>Fecha de servicio: {dateReceive} </p>
-        <p>Punto de recibido: {pointReceive} </p>
-        <p>Dirección de recibido: {addressReceive} </p>
-        <p>Punto de entrega: {pointDelivery} </p>
-        <p>Dirección de entrega: {deliveryAddress} </p>
-        <p>Observaciones: {observations} </p>
-
-        <Button variant="secondary" onClick={this.back}>Atrás</Button>{' '}
-        <Button variant="primary">Enviar</Button>
-      </Container>
+      <main>
+        <h2>Confirmación de datos</h2>
+        <div className="card">
+          <h4>Verifique si la siguiente información es correcta.</h4>
+          <form onSubmit={saveAndContinue}>  
+            <div className="grid-container">       
+              <fieldset >
+                <label>Nombre:</label>
+                <span>{firstName}</span>
+              </fieldset>
+              <fieldset>
+                <label>Apellido:</label>
+                <span>{lastName}</span>
+              </fieldset>
+              <fieldset>
+                <label>Correo electrónico:</label>
+                <span>{email}</span>
+              </fieldset>
+              <fieldset>
+                <label>Dirección:</label>
+                <span>{address}</span>
+              </fieldset>
+              <fieldset>
+                <label>Ciudad:</label>
+                <span>{city}</span>
+              </fieldset>
+              <fieldset>
+                <label>Barrio:</label>
+                <span>{neighborhood}</span>
+              </fieldset>
+              <fieldset>
+                <label>Teléfono:</label>
+                <span>{phone}</span>
+              </fieldset>
+              <fieldset>
+                <label>Tipo de producto:</label>
+                <span>{typeProduct}</span>
+              </fieldset>
+              <fieldset>
+                <label>Producto:</label>
+                <span>{product}</span>
+              </fieldset>
+              <fieldset>
+                <label>Servicio:</label>
+                <span>{service}</span>
+              </fieldset>
+              <fieldset>
+                <label>Fecha de servicio:</label>
+                <span>{dateReceive}</span>
+              </fieldset>
+              <fieldset>
+                <label>Punto de recibido:</label>
+                <span>{pointReceive}</span>
+              </fieldset>
+              <fieldset>
+                <label>Dirección de recibido:</label>
+                <span>{addressReceive}</span>
+              </fieldset>
+              <fieldset>
+                <label>Punto de entrega:</label>
+                <span>{pointDelivery}</span>
+              </fieldset>
+              <fieldset>
+                <label>Dirección de entrega:</label>
+                <span>{deliveryAddress}</span>
+              </fieldset>
+              <fieldset>
+                <label>Observaciones:</label>
+                <span>{observations}</span>
+              </fieldset> 
+            </div>          
+            <div className="button-container">
+              <button onClick={back}>Atrás</button>
+              <button type="submit">Enviar</button>
+            </div>
+        </form>
+        </div>
+      </main>
     );
-  }
 }
 
 export default Confirmation;

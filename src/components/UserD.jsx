@@ -9,9 +9,11 @@ const initialValues = {
 const UserDetails = (props) => {
  
 
-  const handlerSubmit = () => {
-    props.nextStep();
+  const handlerSubmit =  async (values) => {
+    console.log(values);
     console.log("enviando info al servidor...");
+    props.nextStep();
+  
   };
 
   return (

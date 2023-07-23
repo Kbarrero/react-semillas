@@ -1,5 +1,11 @@
 @use "../variables" as v;
 @mixin button() {
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
   button {
     color: v.$white;
     background-image: v.$main-bg;
@@ -11,7 +17,8 @@
     border: none;
     border-radius: 100px;
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    margin-right: 1rem;
     cursor: pointer;
 
     &:disabled {
@@ -19,4 +26,6 @@
       cursor: not-allowed;
     }
   }
+
+  
 }

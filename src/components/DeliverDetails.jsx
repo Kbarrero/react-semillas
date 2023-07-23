@@ -1,62 +1,70 @@
 import React, { Component } from 'react';
 import { Form, Button, Col, Container } from 'react-bootstrap';
 
-class DeliverDetails extends Component {
-  back = (e) => {
+const DeliverDetails = (props) => {
+  
+const back = (e) => {
     e.preventDefault();
-    this.props.prevStep();
+    props.prevStep();
   }
 
-  saveAndContinue = (e) => {
+const saveAndContinue = (e) => {
     e.preventDefault();
-    this.props.nextStep();
+    props.nextStep();
   }
 
-  render() {
     return (
-      <Container>
-        <Form>
-          <Form.Group controlId="formPointDelivery">
-            <Form.Label>Punto de entrega</Form.Label>
-            <Form.Control
-              type="text"
-              defaultValue={this.props.inputValues.pointDelivery}
-              name="pointDelivery"
-              required
-              onChange={this.props.handleChange}
-            />
-          </Form.Group>
-
-          <>
-            <Form.Group as={Col} controlId="formDeliveryAddress">
-              <Form.Label>Dirección de entrega</Form.Label>
-              <Form.Control
+      <main>
+        <h3>Datos de entrega del producto al cliente</h3>
+        <div className="card">
+          <form onSubmit={saveAndContinue}>
+            <fieldset>
+              <label htmlFor="formPointDelivery" className="label">
+                Punto de entrega:
+              </label>
+              <input
                 type="text"
-                defaultValue={this.props.inputValues.deliveryAddress}
+                id="formPointDelivery"
+                defaultValue={props.inputValues.pointDelivery}
+                name="pointDelivery"
+                required
+                onChange={props.handleChange}
+              />
+            </fieldset>
+            <fieldset>
+              <label htmlFor="formDeliveryAddress" className="label">
+                Dirección de entrega:
+              </label>
+              <input
+                type="text"
+                id="formDeliveryAddress"
+                defaultValue={props.inputValues.deliveryAddress}
                 name="deliveryAddress"
                 required
-                onChange={this.props.handleChange}
+                onChange={props.handleChange}
               />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formObservations">
-              <Form.Label>Observaciones</Form.Label>
-              <Form.Control
+            </fieldset>
+            <fieldset>
+              <label htmlFor="formObservations" className="label">
+                Observaciones:
+              </label>
+              <input
                 type="text"
-                defaultValue={this.props.inputValues.observations}
+                id="formObservations"
+                defaultValue={props.inputValues.observations}
                 name="observations"
                 required
-                onChange={this.props.handleChange}
+                onChange={props.handleChange}
               />
-            </Form.Group>
-          </>
-
-          <Button variant="secondary" onClick={this.back}>Atrás</Button>{' '}
-          <Button variant="primary" onClick={this.saveAndContinue}>Siguiente</Button>
-        </Form>
-      </Container>
+            </fieldset>
+            <div className="button-container">
+              <button onClick={back}>Atrás</button>
+              <button type="submit">Siguiente</button>
+            </div>
+          </form>
+        </div>
+      </main>
     );
-  }
 }
 
 export default DeliverDetails;
