@@ -3,24 +3,15 @@ $font-family: "Montserrat", sans-serif;
 
 // Backgrounds
 $container-bg: linear-gradient(
-  to left top,
-  #d14167,
-  #d84668,
-  #de4c69,
-  #e55169,
-  #eb576a
+  to left bottom, #03a64a, #00924b, #007f4a, #006c46, #025940
 );
 $main-bg: linear-gradient(
   to right bottom,
-  #d14167,
-  #d84668,
-  #de4c69,
-  #e55169,
-  #eb576a
+  #03a64a, #00924b, #007f4a, #006c46, #025940
 );
 
 // Colors
-$white: #fff;
+$white: #FEFEFE;
 $black: #353535;
 $gray: #626262;
 $error: #d84668;

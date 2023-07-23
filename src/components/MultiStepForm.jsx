@@ -15,7 +15,7 @@ const MultiStepForm = () => {
     email: '',
     address: '',
     city: '',
-    neigborhood: '',
+    neighborhood: '',
     phone: '',
     typeProduct: '',
     product: '',

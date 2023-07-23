@@ -1,73 +1,80 @@
-import React, { Component } from 'react';
-import { Form, Button, Col, Container } from 'react-bootstrap';
+import React from 'react';
 
-class AddressDetails extends Component {
-  back = (e) => {
+
+const AddressDetails = (props) => {
+  const back = (e) => {
     e.preventDefault();
-    this.props.prevStep();
-  }
+    props.prevStep();
+  };
 
-  saveAndContinue = (e) => {
+  const saveAndContinue = (e) => {
     e.preventDefault();
-    this.props.nextStep();
-  }
+    props.nextStep();
+  };
 
-  render() {
-    return (
-      <Container>
-        <Form>
-          <Form.Group controlId="formAddress">
-            <Form.Label>Dirección</Form.Label>
-            <Form.Control
-              type="text"
-              defaultValue={this.props.inputValues.address}
-              name="address"
-              required
-              onChange={this.props.handleChange}
-            />
-          </Form.Group>
-
-          <>
-            <Form.Group as={Col} controlId="formCity">
-              <Form.Label>Ciudad</Form.Label>
-              <Form.Control
-                type="text"
-                defaultValue={this.props.inputValues.city}
-                name="city"
-                required
-                onChange={this.props.handleChange}
-              />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formNeigborhood">
-              <Form.Label>Barrio</Form.Label>
-              <Form.Control
-                type="text"
-                defaultValue={this.props.inputValues.neigborhood}
-                name="neigborhood"
-                required
-                onChange={this.props.handleChange}
-              />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formPhone">
-              <Form.Label>Teléfono</Form.Label>
-              <Form.Control
-                type="text"
-                defaultValue={this.props.inputValues.phone}
-                name="phone"
-                required
-                onChange={this.props.handleChange}
-              />
-            </Form.Group>
-          </>
-
-          <Button variant="secondary" onClick={this.back}>Atrás</Button>{' '}
-          <Button variant="primary" onClick={this.saveAndContinue}>Siguiente</Button>
-        </Form>
-      </Container>
-    );
-  }
-}
+  return (
+    <main>
+    <h3>Dirección</h3>
+    <div className="card">
+      <form>
+        <fieldset>
+          <label htmlFor="address" className="label">
+            Dirección:
+          </label>
+          <input
+            type="text"
+            id="address"
+            defaultValue={props.inputValues.address}
+            name="address"
+            required
+            onChange={props.handleChange}
+          />
+        </fieldset>
+        <fieldset>
+          <label htmlFor="city" className="label">
+            Ciudad:
+          </label>
+          <input
+            type="text"
+            id="city"
+            defaultValue={props.inputValues.city}
+            name="city"
+            required
+            onChange={props.handleChange}
+          />
+        </fieldset>
+        <fieldset>
+          <label htmlFor="neighborhood" className="label">
+            Barrio:
+          </label>
+          <input
+            type="text"
+            id="neighborhood"
+            defaultValue={props.inputValues.neighborhood}
+            name="neighborhood"
+            required
+            onChange={props.handleChange}
+          />
+        </fieldset>
+        <fieldset>
+          <label htmlFor="phone" className="label">
+            Teléfono:
+          </label>
+          <input
+            type="text"
+            id="phone"
+            defaultValue={props.inputValues.phone}
+            name="phone"
+            required
+            onChange={props.handleChange}
+          />
+        </fieldset>
+        <button onClick={back}>Atrás</button>
+        <button onClick={saveAndContinue}>Siguiente</button>
+      </form>
+    </div>
+  </main>
+  );
+};
 
 export default AddressDetails;

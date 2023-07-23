@@ -1,5 +1,13 @@
 @use "./variables" as v;
 
+h1{
+  font-family: v.$font-family;
+  text-align: center;
+  color: v.$white;
+  text-align: center;
+  letter-spacing: 0.1rem;
+  padding: 2.4rem;
+}
 .container {
   width: 100vw;
   height: 100vh;
@@ -11,8 +19,8 @@
     width: 50%;
     max-width: 500px;
     margin: 0 auto;
-    box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.13),
-      0 1px 4px 0 rgba(0, 0, 0, 0.11);
+    padding-bottom: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     h3 {
       font-family: v.$font-family;
       font-weight: 500;

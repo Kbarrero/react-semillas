@@ -1,62 +1,90 @@
-import React, { Component } from 'react';
-import { Form, Button, Col, Container } from 'react-bootstrap';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { UserDetailsSchema } from "../schemas/UserDetailsShema";
 
-class UserDetails extends Component {
-  back = (e) => {
-    e.preventDefault();
-    this.props.prevStep();
-  }
+// Inicialización de valores del formulario
+const initialValues = {
+   
+};
 
-  saveAndContinue = (e) => {
-    e.preventDefault();
-    this.props.nextStep();
-  }
+const UserDetails = (props) => {
+ 
 
-  render() {
-    return (
+  const handlerSubmit = () => {
+    props.nextStep();
+    console.log("enviando info al servidor...");
+  };
 
-      <Container>
-        <Form>
-          <>
-            <Form.Group as={Col} controlId="formFirstName">
-              <Form.Label className="label">Nombre: </Form.Label>
-              <Form.Control
+  return (
+    <main>
+      <h3>Datos del cliente</h3>
+      <div className="card">
+        <Formik
+          initialValues={initialValues}
+          //validationSchema={UserDetailsSchema}
+          onSubmit={handlerSubmit}
+        >
+          <Form autoComplete="off">
+            <fieldset>
+              <label htmlFor="firstName" className="label">
+                Nombre:
+              </label>
+              <Field 
                 type="text"
-                defaultValue={this.props.inputValues.firstName}
+                id="firstName"
+                defaultValue={props.inputValues.firstName}
                 name="firstName"
+                autoFocus
                 required
-                onChange={this.props.handleChange}
+                onChange={props.handleChange}
               />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formLastName">
-              <Form.Label className="label">Apellido:</Form.Label>
-              <Form.Control
+              <ErrorMessage
+                name="firstName"
+                component="p"
+                className="error-message"
+              />
+            </fieldset>
+            <fieldset>
+              <label htmlFor="lastName" className="label">
+                Apellido:
+              </label>
+              <Field 
                 type="text"
-                defaultValue={this.props.inputValues.lastName}
+                id="lastName"
+                defaultValue={props.inputValues.lastName}
                 name="lastName"
                 required
-                onChange={this.props.handleChange}
+                onChange={props.handleChange}
               />
-            </Form.Group>
-          </>
-
-          <Form.Group controlId="formEmail">
-            <Form.Label className="label">Correo electrónico</Form.Label>
-            <Form.Control
-              type="email"
-              defaultValue={this.props.inputValues.email}
-              name="email"
-              required
-              onChange={this.props.handleChange}
-            />
-          </Form.Group>
-
-          <Button variant="primary" onClick={this.saveAndContinue}>Siguiente</Button>
-        </Form>
-      </Container>
-    );
-  }
-}
+              <ErrorMessage
+                name="lastName"
+                component="p"
+                className="error-message"
+              />
+            </fieldset>
+            <fieldset>
+              <label htmlFor="email" className="label">
+                Correo electrónico:
+              </label>
+              <Field 
+                type="email"
+                id="email"
+                defaultValue={props.inputValues.email}
+                name="email"
+                required
+                onChange={props.handleChange}
+              />
+              <ErrorMessage
+                name="email"
+                component="p"
+                className="error-message"
+              />
+            </fieldset>
+            <button type="submit">Siguiente</button>
+          </Form>
+        </Formik>
+      </div>
+    </main>
+  );
+};
 
 export default UserDetails;
