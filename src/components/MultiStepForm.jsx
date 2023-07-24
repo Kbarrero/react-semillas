@@ -47,7 +47,7 @@ const MultiStepForm = () => {
 
   switch (step) {
     case 1:
-      return <UserD
+      return <UserDetails
         nextStep={nextStep}
         handleChange={handleChange}
         inputValues={inputValues}

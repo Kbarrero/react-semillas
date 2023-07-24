@@ -3,7 +3,21 @@
 
   .button-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; 
+  
+
+    @media (max-width: 768px) {
+      font-size: 0.7rem; // Reducir el tamaño de fuente en pantallas más pequeñas
+      padding: 1rem 0.8rem; // Reducir el espaciado en pantallas más pequeñas
+      flex-wrap: wrap;
+    }
+  
+    @media (max-width: 576px) {
+      font-size: 0.5rem; // Reducir aún más el tamaño de fuente en pantallas muy pequeñas
+      padding: 0.8rem 0.6rem; // Reducir aún más el espaciado en pantallas muy pequeñas
+      flex-wrap: wrap;
+    }
+    
   }
 
   button {
@@ -16,10 +30,11 @@
     padding: 1.2rem 1rem;
     border: none;
     border-radius: 100px;
-    width: 100%;
-    margin-top: 1.5rem;
-    margin-right: 1rem;
+    width: 60%;
+    margin-top: 0.9rem;   
+    margin-right: 0.6rem;
     cursor: pointer;
+  
 
     &:disabled {
       opacity: 0.35;
@@ -27,5 +42,6 @@
     }
   }
 
-  
+  // Estilos responsive
+ 
 }

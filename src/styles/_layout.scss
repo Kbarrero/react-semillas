@@ -1,49 +1,55 @@
 @use "./variables" as v;
 
-h1{
+h1 {
   font-family: v.$font-family;
   color: v.$white;
   text-align: center;
   letter-spacing: 0.1rem;
   padding: 2.4rem;
 }
-h2{
+
+h2 {
   font-family: v.$font-family;
   text-align: center;
   color: v.$white;
   padding: 1rem;
 }
-h4{
+
+h4 {
   font-family: v.$font-family;
   text-align: justify;
   padding-bottom: 1rem;
 }
-span{
+
+span {
   font-family: v.$font-family;
   font-weight: 420;
 }
 
 .container {
   width: 100vw;
-  height: 100vh;
-  padding: 20px;
+  height: 110vh;
+  padding: 10px;
   background-image: v.$container-bg;
+
   main {
     background-image: v.$main-bg;
     border-radius: 8px;
-    width: 50%;
+    width: 100%; /* Ajustar el ancho del main al 100% para pantallas más pequeñas */
     max-width: 500px;
     margin: 0 auto;
-    padding-bottom: 40px;
+    padding: 20px; /* Aumentar el padding para mayor espaciado en pantallas más pequeñas */
+    padding-bottom: 30px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
     h3 {
       font-family: v.$font-family;
-      font-weight: 500;
+      font-weight: 800;
       color: v.$white;
       text-align: center;
-      letter-spacing: 0.1rem;
       padding: 1.5rem;
     }
+
     > p {
       font-family: v.$font-family;
       font-size: 1.2rem;
@@ -51,6 +57,7 @@ span{
       color: v.$white;
       text-align: center;
       padding: 1rem;
+
       span {
         font-weight: 500;
         cursor: pointer;
@@ -62,6 +69,11 @@ span{
 .grid-container {
   display: grid;
   grid-template-columns: max-content 1fr; /* Espacio igual entre las etiquetas y los valores */
-  grid-row-gap: 3px; /* Espacio vertical entre filas */
- 
+  grid-row-gap: 10px; /* Mayor espacio vertical entre filas para pantallas más pequeñas */
+
+  @media (max-width: 768px) {
+    /* Estilos para pantallas con ancho igual o menor a 768px */
+    grid-template-columns: 1fr; /* Cambiar la disposición de la cuadrícula en pantallas más pequeñas */
+    grid-row-gap: 5px; /* Ajustar el espacio vertical para pantallas aún más pequeñas */
+  }
 }

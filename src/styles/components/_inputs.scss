@@ -8,7 +8,7 @@
     font-family: v.$font-family;
     font-size: 1.0rem;
     border: 0;
-    font-weight: 450; 
+    font-weight: 450;
     border-bottom: 1px solid v.$gray;
     outline: none;
     padding: 0.3rem 0.1rem;
@@ -24,10 +24,22 @@
     &:invalid[data-focused="true"] ~ p {
       display: block;
     }
+
     // Muestra el mensaje de error con Formik
     &.error-forgot-input {
       border-bottom: 1px solid v.$error;
       color: v.$error;
+    }
+
+    // Estilos responsive
+    @media (max-width: 768px) {
+      font-size: 0.9rem; // Reducir el tamaño de fuente en pantallas más pequeñas
+      padding: 0.2rem 0.1rem; // Reducir el espaciado en pantallas más pequeñas
+    }
+
+    @media (max-width: 576px) {
+      font-size: 0.8rem; // Reducir aún más el tamaño de fuente en pantallas muy pequeñas
+      padding: 0.1rem 0.05rem; // Reducir aún más el espaciado en pantallas muy pequeñas
     }
   }
 }
