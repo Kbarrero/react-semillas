@@ -22,11 +22,6 @@ const ProductDetails = (props) => {
           <label htmlFor="typeProduct" className="label">
             Tipo de producto:
           </label>
-          <Field id="framework" name="framework" as="select">
-                <option value="">Select your framework</option>
-                <option value="react">React</option>
-                <option value="vue">Vue</option>
-                <option value="angular">Angular</option>
           <input
             type="text"
             id="typeProduct"
