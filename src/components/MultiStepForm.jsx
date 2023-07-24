@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import UserD from "./UserD";
 import UserDetails from "./UserDetails";
 import AddressDetails from "./AddressDetails";
 import Confirmation from "./Confirmation";
