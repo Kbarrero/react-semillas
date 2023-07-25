@@ -1,0 +1,35 @@
+/* Inputs.css */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.inpt {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+/* Estilos para el estado "entrada" */
+.entrada {
+  border: 1px solid #ccc;
+}
+
+/* Estilos para el estado "password" */
+.password {
+  border: 1px solid #ccc;
+  /* Añade icono de ojo para mostrar/ocultar contraseña (puedes agregar tu propio icono aquí) */
+  background-image: url("eye-icon.png");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 30px; /* Ajusta el padding para dar espacio al icono */
+}
+
+/* Estilos para el estado "number" */
+.number {
+  border: 1px solid #ccc;
+  border-radius: 0; /* Bordes más cuadrados para el tipo "number" */
+}
